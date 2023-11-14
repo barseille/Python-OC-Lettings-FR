@@ -5,7 +5,7 @@
 <div class="container px-5 py-5 text-center">
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <h1 class="page-header-ui-title mb-3 display-6">Profiles</h1>
+            <h1 class="page-header-ui-title mb-3 display-6">Profiles index.html</h1>
         </div>
     </div>
 </div>
@@ -18,7 +18,7 @@
                 <ul class="list-group list-group-flush list-group-careers">
                     {% for profile in profiles_list %}
                         <li class="list-group-item">
-                            <a href="{% url 'profile' username=profile.user.username %}">{{ profile.user.username }}</a>
+                            <a href="{% url 'profiles:profile' username=profile.user.username %}">{{ profile.user.username }}</a>
                         </li>
                     {% endfor %}
                 </ul>
@@ -31,10 +31,10 @@
 
 <div class="container px-5 py-5 text-center">
     <div class="justify-content-center">
-        <a class="btn fw-500 ms-lg-4 btn-primary px-10" href="{% url 'index' %}">
+        <a class="btn fw-500 ms-lg-4 btn-primary px-10" href="{% url 'home' %}">
             Home
         </a>
-        <a class="btn fw-500 ms-lg-4 btn-primary px-10" href="{% url 'lettings_index' %}">
+        <a class="btn fw-500 ms-lg-4 btn-primary px-10" href="{% url 'lettings:index' %}">
             Lettings
         </a>
     </div>
