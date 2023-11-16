@@ -15,7 +15,7 @@ SECRET_KEY = 'fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -114,3 +114,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static", ]
+
+# Gestion des erreurs 404 et 500 qui renvoye la réponse HTTP appropriée
+HANDLER404 = 'oc_lettings_site.views.custom_404'
+HANDLER500 = 'oc_lettings_site.views.custom_500'
