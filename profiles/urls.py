@@ -3,6 +3,7 @@ from . import views
 
 app_name = 'profiles'
 
+
 urlpatterns = [
 
     # Cette URL dirige vers la vue 'index' qui affiche la liste des profiles

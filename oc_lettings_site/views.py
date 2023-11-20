@@ -1,4 +1,8 @@
 from django.shortcuts import render
+import logging
+
+# Configuration du logger
+logger = logging.getLogger(__name__)
 
 
 def home(request):
@@ -7,7 +11,10 @@ def home(request):
 
     Affiche la page d'accueil principale du site web.
     """
-    return render(request, 'base.html')
+    try:
+        return render(request, 'base.html')
+    except Exception as e:
+        logger.error(f"Erreur dans la vue home: {e}", exc_info=True)
 
 
 def custom_404(request, _exception):
@@ -20,7 +27,10 @@ def custom_404(request, _exception):
     paramètre '_exception' est requis par la signature de la fonction
     mais n'est pas utilisé dans le corps de la fonction
     """
-    return render(request, '404.html', status=404)
+    try:
+        return render(request, '404.html', status=404)
+    except Exception as e:
+        logger.error(f"Erreur dans la vue custom_404: {e}", exc_info=True)
 
 
 def custom_500(request):
@@ -29,4 +39,7 @@ def custom_500(request):
 
     Affiche une page d'erreur 500 personnalisée en cas de problème interne du serveur.
     """
-    return render(request, '500.html', status=500)
+    try:
+        return render(request, '500.html', status=500)
+    except Exception as e:
+        logger.error(f"Erreur dans la vue custom_500: {e}", exc_info=True)

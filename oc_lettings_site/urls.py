@@ -3,6 +3,10 @@ from django.urls import path, include
 from . import views
 
 
+# def trigger_error(request):
+#     division_by_zero = 1 / 0
+
+
 urlpatterns = [
 
     # Chemin d'accès à l'interface d'administration de Django
@@ -18,4 +22,7 @@ urlpatterns = [
     # Inclut les chemins d'URL de l'application 'profiles'.
     # Toutes les URL commençant par 'profiles/' seront redirigées vers profiles.urls.
     path('profiles/', include('profiles.urls', namespace='profiles')),
+
+    # Test sentry
+    # path('sentry-debug/', trigger_error),
 ]
